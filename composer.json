@@ -1,0 +1,22 @@
+{
+    "name": "habab0/yp-server-side-programming",
+    "description": "server side practic",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "HABAB0",
+            "email": "tolya.shaprove@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
+    }
+}
