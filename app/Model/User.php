@@ -10,12 +10,19 @@ class User extends Model implements IdentityInterface
 {
     use HasFactory;
 
+    protected $table = 'user';
+
     public $timestamps = false;
     protected $fillable = [
-        'name',
         'login',
-        'password'
+        'password',
+        'role_id'
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
 
     protected static function booted()
     {

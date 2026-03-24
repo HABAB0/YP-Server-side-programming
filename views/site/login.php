@@ -82,7 +82,7 @@
 if (!app()->auth::check()):
     ?>
     <form method="post" class="login-form">
-        <label class="login-form__label">Логин <input type="text" name="login" class="login-form__input"></label>
+        <label class="login-form__label">Логин <input type="text" name="login" required class="login-form__input"></label>
         <label class="login-form__label">Пароль <input type="password" name="password" class="login-form__input"></label>
         <button type="submit" class="login-form__button">Войти</button>
     </form>

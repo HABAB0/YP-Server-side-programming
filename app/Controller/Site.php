@@ -24,7 +24,12 @@ class Site
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/go');
+            $data = $request->all();
+
+            $data['role_id'] = $data['role_id'] ?? 2;
+
+            User::create($data);
+            app()->route->redirect('/login');
         }
         return new View('site.signup');
     }
