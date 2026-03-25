@@ -38,6 +38,7 @@ class Site
                 return new View('site.signup',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
+            $data = $request->all();
 
             $data['role_id'] = $data['role_id'] ?? 2;
 
