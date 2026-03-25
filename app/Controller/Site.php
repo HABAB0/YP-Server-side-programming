@@ -24,7 +24,7 @@ class Site
 
     public function signup(Request $request): string
     {
-        if ($request->method === 'POST' && User::create($request->all())) {
+        if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
                 'login' => ['required', 'unique:user,login'],
@@ -39,12 +39,12 @@ class Site
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
 
-            $data = $request->all();
-
             $data['role_id'] = $data['role_id'] ?? 2;
 
             User::create($data);
+
             app()->route->redirect('/login');
+            exit;
         }
         return new View('site.signup');
     }
