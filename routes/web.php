@@ -8,3 +8,4 @@ Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/hello', [Controller\Site::class, 'hello'])->middleware('auth');
 Route::add('GET', '/forbidden', [Controller\Site::class, 'forbidden']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
+Route::add('GET', '/buildings', [Controller\Site::class, 'buildings']);

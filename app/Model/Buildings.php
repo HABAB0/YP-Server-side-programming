@@ -4,9 +4,9 @@ namespace Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Building extends Model
+class Buildings extends Model
 {
-    protected $table = 'Building';
+    protected $table = 'buildings';
     public $timestamps = false;
 
     protected $fillable = ['name', 'address'];

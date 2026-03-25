@@ -21,6 +21,7 @@
         else:
             ?>
             <?php $user = app()->auth->user(); ?>
+            <a href="<?= app()->route->getUrl('/buildings') ?>" class="header__link">Просмотр зданий</a>
             <?php if ($user->role && $user->role_id == 1): ?>
                 <a href="<?= app()->route->getUrl('/signup') ?>" class="header__link">Создание пользователя</a>
             <?php endif; ?>

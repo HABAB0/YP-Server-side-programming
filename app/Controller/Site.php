@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Buildings;
 use Model\Post;
 use Src\Validator\Validator;
 use Src\View;
@@ -73,5 +74,11 @@ class Site
     public function forbidden(): string
     {
         return new View('errors.forbidden');
+    }
+
+    public function buildings(Request $request): string
+    {
+        $buildings = Buildings::all();
+        return (new View())->render('site.buildings.buildings', ['buildings' => $buildings]);
     }
 }
