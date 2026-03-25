@@ -53,4 +53,9 @@ class Site
         Auth::logout();
         app()->route->redirect('/hello');
     }
+
+    public function forbidden(): string
+    {
+        return new View('errors.forbidden');
+    }
 }

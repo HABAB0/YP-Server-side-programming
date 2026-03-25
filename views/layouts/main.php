@@ -15,11 +15,15 @@
         if (!app()->auth::check()):
             ?>
             <a href="<?= app()->route->getUrl('/login') ?>" class="header__link">Вход</a>
-            <a href="<?= app()->route->getUrl('/signup') ?>" class="header__link">Регистрация</a>
+
         <?php
         else:
             ?>
-            <a href="<?= app()->route->getUrl('/logout') ?>" class="header__link">Выход (<?= app()->auth::user()->login ?>, <?= app()->auth->user()->role->name ?>)</a>
+            <?php $user = app()->auth->user(); ?>
+            <?php if ($user->role && $user->role_id == 1): ?>
+                <a href="<?= app()->route->getUrl('/signup') ?>" class="header__link">Создание пользователя</a>
+            <?php endif; ?>
+            <a href="<?= app()->route->getUrl('/logout') ?>" class="header__link">Выход (<?= app()->auth::user()->login ?>, <?= app()->auth::user()->role->name ?>)</a>
         <?php
         endif;
         ?>
