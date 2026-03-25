@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Model\Post;
+use Src\Validator\Validator;
 use Src\View;
 use Src\Request;
 use Model\User;
@@ -24,6 +25,20 @@ class Site
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
+
+            $validator = new Validator($request->all(), [
+                'login' => ['required', 'unique:user,login'],
+                'password' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if($validator->fails()){
+                return new View('site.signup',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
             $data = $request->all();
 
             $data['role_id'] = $data['role_id'] ?? 2;
