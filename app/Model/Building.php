@@ -4,7 +4,7 @@ namespace Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Buildings extends Model
+class Building extends Model
 {
     protected $table = 'buildings';
     public $timestamps = false;
