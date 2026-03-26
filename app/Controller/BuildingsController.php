@@ -59,10 +59,35 @@ class BuildingsController
         exit;
     }
 
-    public function edit(int $id): string
+    public function edit(int $id, Request $request): string
     {
-        $building = Building::find($id);
-        return (new View())->render('site.buildings.edit', ['building' => $building]);
+
+        $user = app()->auth->user();
+        if (!$user || $user->role_id !== 1) {
+            app()->route->redirect('/forbidden');
+            exit;
+        }
+
+        if ($request->method === 'GET') {
+            $building = Building::find($id);
+            return (new View())->render('site.buildings.edit', ['building' => $building]);
+        }
+
+        if ($request->method === 'POST') {
+            $building = Building::find($id);
+
+            if ($building) {
+                $data = $request->all();
+
+                $building->name = $data['name'];
+                $building->address = $data['address'];
+                $building->save();
+            }
+
+            app()->route->redirect('/buildings');
+            exit;
+        }
+        return (new View('errors.forbidden'))->render();
     }
 
     public function update(int $id, Request $request): void
