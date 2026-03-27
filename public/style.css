@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -208,4 +208,124 @@
 .signup-form__button:active {
     transform: scale(0.98);
     box-shadow: 0 2px 0 #9a0007;
+}
+
+.buildings-title {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.buildings-add-link {
+    display: inline-block;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #d32f2f;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 2px 4px 0 #9a0007;
+    text-transform: uppercase;
+}
+
+.buildings-add-link:hover {
+    background-color: #f44336;
+    transform: translateY(-1px);
+}
+
+.buildings-add-link:active {
+    transform: translateY(1px);
+    box-shadow: 1px 2px 0 #9a0007;
+}
+
+.buildings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.buildings-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    transition: box-shadow 0.2s, transform 0.1s;
+}
+
+.buildings-list__item:hover {
+    box-shadow: 4px 4px 0 #cccccc;
+    transform: translateX(2px);
+}
+
+.buildings-list__info {
+    flex: 1;
+    font-size: 16px;
+    color: #333333;
+}
+
+.buildings-list__info strong {
+    color: #d32f2f;
+    font-weight: 600;
+}
+
+.buildings-list__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.buildings-list__action {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.buildings-list__action--edit {
+    color: #ffffff;
+    background-color: #2196F3;
+    box-shadow: 2px 3px 0 #1565C0;
+}
+
+.buildings-list__action--edit:hover {
+    background-color: #42A5F5;
+    transform: translateY(-1px);
+}
+
+.buildings-list__action--delete {
+    color: #ffffff;
+    background-color: #d32f2f;
+    box-shadow: 2px 3px 0 #9a0007;
+}
+
+.buildings-list__action--delete:hover {
+    background-color: #f44336;
+    transform: translateY(-1px);
+}
+
+.buildings-list__action:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0;
+}
+
+.buildings-empty {
+    text-align: center;
+    padding: 40px;
+    color: #666666;
+    font-size: 18px;
+    font-style: italic;
 }

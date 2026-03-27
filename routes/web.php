@@ -12,7 +12,6 @@ Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
 Route::add('GET', '/buildings', [Controller\BuildingsController::class, 'buildings']);
 Route::add(['GET', 'POST'], '/buildings/create', [Controller\BuildingsController::class, 'create'])->middleware('admin');
 Route::add(['GET', 'POST'], '/buildings/edit/{id}', [Controller\BuildingsController::class, 'edit'])->middleware('admin');
-
 Route::add('GET', '/buildings/delete/{id}', [Controller\BuildingsController::class, 'delete'])->middleware('admin');
 
 Route::add('GET', '/rooms', [Controller\RoomsController::class, 'rooms']);
