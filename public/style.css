@@ -329,3 +329,96 @@
     font-size: 18px;
     font-style: italic;
 }
+
+.rooms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rooms-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rooms-add-link {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.rooms-add-link:hover {
+    background-color: #45a049;
+}
+
+.rooms-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rooms-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.rooms-list__info {
+    flex: 1;
+}
+
+.rooms-list__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.rooms-list__action {
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.rooms-list__action--edit {
+    background-color: #2196F3;
+    color: white;
+}
+
+.rooms-list__action--edit:hover {
+    background-color: #1976D2;
+}
+
+.rooms-list__action--delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.rooms-list__action--delete:hover {
+    background-color: #d32f2f;
+}
+
+.rooms-empty {
+    color: #999;
+    font-style: italic;
+    padding: 20px;
+    text-align: center;
+}
+
+.rooms-footer {
+    margin-top: 20px;
+}
+
+.rooms-back-link {
+    color: #666;
+    text-decoration: none;
+}
+
+.rooms-back-link:hover {
+    text-decoration: underline;
+}

@@ -10,5 +10,5 @@
             <option value="2" selected>Комендант</option>
         </select>
     </label>
-    <button type="submit" class="signup-form__button">Зарегистрироваться</button>
+    <button type="submit" class="signup-form__button">Зарегистрировать</button>
 </form>

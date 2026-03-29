@@ -74,6 +74,22 @@ class BuildingsController
         }
 
         if ($request->method === 'POST') {
+            $oldInput = $request->all();
+
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'address' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+            ]);
+
+            if($validator->fails()){
+                return (new View())->render('site.buildings.edit', [
+                    'building' => Building::find($id),
+                    'old' => $oldInput,
+                    'message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)
+                ]);
+            }
             $building = Building::find($id);
 
             if ($building) {
