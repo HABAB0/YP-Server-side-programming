@@ -15,7 +15,7 @@
         <?php foreach ($buildings as $building): ?>
             <li class="buildings-list__item">
                 <div class="buildings-list__info">
-                    <strong><?= $building->name ?></strong> - по адресу: <?= $building->address ?>
+                    <?= $building->name ?> - по адресу: <?= $building->address ?>
                 </div>
                 <div class="buildings-list__actions">
                     <a href="<?= app()->route->getUrl('/buildings/edit/' . $building->id) ?>"

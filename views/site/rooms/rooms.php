@@ -15,7 +15,7 @@
         <?php foreach ($rooms as $room): ?>
             <li class="rooms-list__item">
                 <div class="rooms-list__info">
-                    <strong><?= $room->building->name ?? 'Без здания' ?></strong> -
+                    <?= $room->building->name ?? 'Без здания' ?> -
                     Комната №<?= $room->room_number ?>
                     (<?= $room->capacity ?> мест,
                     <?php

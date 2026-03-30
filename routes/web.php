@@ -18,3 +18,8 @@ Route::add('GET', '/rooms', [Controller\RoomsController::class, 'rooms']);
 Route::add(['GET', 'POST'], '/rooms/create', [Controller\RoomsController::class, 'roomCreate'])->middleware('admin');
 Route::add(['GET', 'POST'], '/rooms/edit/{id}', [Controller\RoomsController::class, 'roomEdit'])->middleware('admin');
 Route::add('GET', '/rooms/delete/{id}', [Controller\RoomsController::class, 'roomDelete'])->middleware('admin');
+
+Route::add('GET', '/roomers', [Controller\RoomerController::class, 'roomers']);
+Route::add(['GET', 'POST'], '/roomers/create', [Controller\RoomerController::class, 'roomerCreate'])->middleware('admin');
+Route::add(['GET', 'POST'], '/roomers/edit/{id}', [Controller\RoomerController::class, 'roomerEdit'])->middleware('admin');
+Route::add('GET', '/roomers/delete/{id}', [Controller\RoomerController::class, 'roomerDelete'])->middleware('admin');
