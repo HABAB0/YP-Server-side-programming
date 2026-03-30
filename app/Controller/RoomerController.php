@@ -29,20 +29,23 @@ class RoomerController
 
         if ($request->method === 'POST') {
             $oldInput = $request->all();
-            $data['status'] = $data['status'] ?? 'active';
+            $data['status'] = 'В ожидании';
 
             $validator = new Validator($oldInput, [
                 'fio' => ['required'],
-                'passport_series' => ['required', 'numeric'],
-                'passport_number' => ['required', 'numeric'],
+                'passport_series' => ['required', 'numeric', 'unique:roomer,passport_series'],
+                'passport_number' => ['required', 'numeric', 'unique:roomer,passport_number'],
+                'number_of_check_in' => ['required', 'numeric', 'unique:roomer,number_of_check_in'],
 
             ], [
                 'required' => 'Поле :field пусто',
-                'numeric' => 'Поле :field должно быть числом'
+                'numeric' => 'Поле :field должно быть числом',
+                'unique' => 'Поле :field должно быть уникально'
             ]);
 
+
             if($validator->fails()){
-                return (new View())->render('site.roomer.create', [
+                return new View('site.roomer.create',[
                     'old' => $oldInput,
                     'message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)
                 ]);
@@ -56,7 +59,7 @@ class RoomerController
             exit;
         }
         return (new View())->render('site.roomer.create', [
-            'old' => []
+            'old' => [],
         ]);
     }
 
@@ -82,9 +85,8 @@ class RoomerController
 
         if ($request->method === 'GET') {
             $roomer = Roomer::find($id);
-            return (new View())->render('site.roomers.edit', [
+            return (new View())->render('site.roomer.edit', [
                 'roomer' => $roomer,
-                'buildings' => Building::all(),
                 'old' => []
             ]);
         }
@@ -94,31 +96,32 @@ class RoomerController
             unset($oldInput['csrf_token']);
 
             $validator = new Validator($oldInput, [
-                'building_id' => ['required'],
-                'room_number' => ['required'],
-                'capacity' => ['required', 'numeric'],
-                'type' => ['required']
+                'fio' => ['required'],
+                'passport_series' => ['required', 'numeric'],
+                'passport_number' => ['required', 'numeric'],
+                'number_of_check_in' => ['required', 'numeric'],
+                'status' => ['required']
             ], [
                 'required' => 'Поле :field пусто',
-                'numeric' => 'Поле :field должно быть числом'
+                'numeric' => 'Поле :field должно быть числом',
             ]);
 
             if ($validator->fails()) {
-                return (new View())->render('site.roomers.edit', [
-                    'room' => Roomer::find($id),
-                    'buildings' => Building::all(),
+                return (new View())->render('site.roomer.edit', [
+                    'roomer' => Roomer::find($id),
                     'old' => $oldInput,
                     'message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)
                 ]);
             }
 
-            $room = Roomer::find($id);
-            if ($room) {
-                $room->building_id = $oldInput['building_id'];
-                $room->room_number = $oldInput['room_number'];
-                $room->capacity = $oldInput['capacity'];
-                $room->type = $oldInput['type'];
-                $room->save();
+            $roomer = Roomer::find($id);
+            if ($roomer) {
+                $roomer->fio = $oldInput['fio'];
+                $roomer->passport_series = $oldInput['passport_series'];
+                $roomer->passport_number = $oldInput['passport_number'];
+                $roomer->number_of_check_in = $oldInput['number_of_check_in'];
+                $roomer->status = $oldInput['status'];
+                $roomer->save();
             }
 
             app()->route->redirect('/roomers');

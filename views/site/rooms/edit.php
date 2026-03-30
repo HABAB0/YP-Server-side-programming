@@ -39,11 +39,9 @@
                value="<?= $old['capacity'] ?? $room->capacity ?>" min="1" required>
     </label>
 
-    <!-- Тип комнаты -->
     <label class="signup-form__label">
         Тип комнаты
         <select name="type" class="signup-form__input" required>
-            <option value="mixed" <?= ($old['type'] ?? $room->type) == 'mixed' ? 'selected' : '' ?>>Смешанный</option>
             <option value="male" <?= ($old['type'] ?? $room->type) == 'male' ? 'selected' : '' ?>>Мужской</option>
             <option value="female" <?= ($old['type'] ?? $room->type) == 'female' ? 'selected' : '' ?>>Женский</option>
         </select>
