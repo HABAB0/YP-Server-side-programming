@@ -39,6 +39,22 @@ class BuildingsController
             }
             $data = $request->all();
 
+
+            if (!empty($_FILES['image']['name'])) {
+                $uploadDir = __DIR__ . '/../../public/uploads/buildings/';
+
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);
+                }
+
+                $fileName = $_FILES['image']['name'];
+                $targetPath = $uploadDir . $fileName;
+
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
+                    $data['image_path'] = '/uploads/buildings/' . $fileName;
+                }
+            }
+
             Building::create($data);
 
             app()->route->redirect('/buildings');
@@ -52,6 +68,10 @@ class BuildingsController
         $building = Building::find($id);
 
         if ($building) {
+            if (!empty($building->image_path)) {
+                $filePath = __DIR__ . '/../../public' . $building->image_path;
+                unlink($filePath);
+            }
             $building->delete();
         }
 

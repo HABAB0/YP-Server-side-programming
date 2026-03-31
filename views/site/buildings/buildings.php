@@ -14,6 +14,13 @@
     <?php else: ?>
         <?php foreach ($buildings as $building): ?>
             <li class="buildings-list__item">
+                <div class="img__container">
+                    <?php if (!empty($building->image_path)): ?>
+                        <img src="<?= $building->image_path ?>" alt="<?= $building->name ?>" class="building-preview">
+                    <?php else: ?>
+                        <div></div>
+                    <?php endif; ?>
+                </div>
                 <div class="buildings-list__info">
                     <?= $building->name ?> - по адресу: <?= $building->address ?>
                 </div>

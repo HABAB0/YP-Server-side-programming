@@ -10,10 +10,20 @@ use Src\View;
 
 class RoomerController
 {
-    public function roomers(): string
+    public function roomers(Request $request): string
     {
-        $roomers = Roomer::all();
-        return (new View())->render('site.roomer.roomers', ['roomers' => $roomers]);
+        $search = $_GET['search'] ?? '';
+
+        if (!empty($search)) {
+            $roomers = Roomer::where('fio', 'LIKE', "%{$search}%")->get();
+        } else {
+            $roomers = Roomer::all();
+        }
+
+        return (new View())->render('site.roomer.roomers', [
+            'roomers' => $roomers,
+            'search' => $search
+        ]);
     }
 
     public function roomerCreate(Request $request): string

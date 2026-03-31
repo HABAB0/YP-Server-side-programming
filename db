@@ -28,10 +28,10 @@ CREATE TABLE `buildings` (
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `buildings` (`id`, `name`, `address`) VALUES
-(50, 'Главный корпус А', 'ул. Университетская, 1'),
-(51, 'Главный корпус Б', 'ул. Университетская, 3'),
-(52, 'Спортивный корпус', 'ул. Спортивная, 5');
+INSERT INTO `buildings` (`id`, `name`, `address`, 'image_path') VALUES
+(50, 'Главный корпус А', 'ул. Университетская, 1', '/uploads/buildings/Каламбурю.jfif'),
+(51, 'Главный корпус Б', 'ул. Университетская, 3', '/uploads/buildings/Каламбурю.jfif'),
+(52, 'Спортивный корпус', 'ул. Спортивная, 5', '/uploads/buildings/Каламбурю.jfif');
 
 
 CREATE TABLE `rooms` (
@@ -137,3 +137,5 @@ INSERT INTO `accommodation` (`id`, `room_id`, `roomer_id`, `check_in_date`, `che
 (70, 55, 51, '2025-12-01', '2026-02-28', 'checked_out', 'ORD-2025-050', 15000.00, 'paid', '2026-01-15', '2025-12'),
 (71, 56, 52, '2026-01-10', '2026-03-15', 'checked_out', 'ORD-2026-021', 12000.00, 'paid', '2026-02-10', '2026-01'),
 (72, 57, 53, '2026-02-01', '2026-03-20', 'checked_out', 'ORD-2026-031', 8000.00, 'paid', '2026-03-01', '2026-02');
+
+ALTER TABLE buildings ADD COLUMN image_path VARCHAR(255) NULL;

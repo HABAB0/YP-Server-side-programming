@@ -9,7 +9,11 @@ class Building extends Model
     protected $table = 'buildings';
     public $timestamps = false;
 
-    protected $fillable = ['name', 'address'];
+    protected $fillable = [
+        'name',
+        'address',
+        'image_path'
+    ];
 
     public function rooms()
     {
