@@ -15,7 +15,7 @@
         <?php foreach ($roomers as $roomer): ?>
             <li class="rooms-list__item">
                 <div class="rooms-list__info">
-                    <?= $roomer->fio ?> - <?= $roomer->status ?>
+                    <?= $roomer->fio ?> - <?= $roomer->status == 'pending' ? 'В ожидании' : 'Заселён' ?>
                 </div>
                 <?php
                 $user = app()->auth->user();

@@ -126,4 +126,24 @@ class RoomsController
 
         return (new View('errors.forbidden'))->render();
     }
+
+    public function availableByGender(): string
+    {
+        $maleRooms = Room::query()
+            ->where('type', 'male')
+            ->whereColumn('fullness', '<', 'capacity')
+            ->orderBy('room_number')
+            ->get();
+
+        $femaleRooms = Room::query()
+            ->where('type', 'female')
+            ->whereColumn('fullness', '<', 'capacity')
+            ->orderBy('room_number')
+            ->get();
+
+        return (new View())->render('site.rooms.available', [
+            'maleRooms' => $maleRooms,
+            'femaleRooms' => $femaleRooms
+        ]);
+    }
 }

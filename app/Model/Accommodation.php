@@ -32,4 +32,32 @@ class Accommodation extends Model
     {
         return $this->hasMany(Payment::class, 'accommodation_id');
     }
+
+    public static function isRoomerActive(int $roomerId): bool
+    {
+        $count = self::query()
+            ->where('roomer_id', $roomerId)
+            ->where('status', 'Заселён')
+            ->count();
+
+        return $count > 0;
+    }
+
+    public function checkOut(string $date = null): bool
+    {
+        $this->check_out_date = $date ?? date('Y-m-d');
+        $this->status = 'В ожидании';
+        return $this->save();
+    }
+
+    public function getDaysCount(): int
+    {
+        $checkIn = new \DateTime($this->check_in_date);
+        $checkOut = $this->check_out_date
+            ? new \DateTime($this->check_out_date)
+            : new \DateTime();
+
+        $interval = $checkIn->diff($checkOut);
+        return (int) $interval->format('%a');
+    }
 }

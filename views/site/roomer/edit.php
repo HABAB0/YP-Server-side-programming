@@ -33,8 +33,8 @@
     <label class="signup-form__label">
         Статус
         <select name="status" class="signup-form__input" required>
-            <option value="В ожидании" <?= ($old['status'] ?? $roomer->status) == 'В ожидании' ? 'selected' : '' ?>>В ожидании</option>
-            <option value="Засёлён" <?= ($old['status'] ?? $roomer->status) == 'Засёлён' ? 'selected' : '' ?>>Засёлён</option>
+            <option value="pending" <?= ($old['status'] ?? $roomer->status) == 'В ожидании' ? 'selected' : '' ?>>В ожидании</option>
+            <option value="active" <?= ($old['status'] ?? $roomer->status) == 'Засёлён' ? 'selected' : '' ?>>Засёлён</option>
         </select>
     </label>
     <button type="submit" class="signup-form__button">Создать</button>

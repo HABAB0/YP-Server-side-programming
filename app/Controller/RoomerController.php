@@ -35,7 +35,7 @@ class RoomerController
                 'fio' => ['required'],
                 'passport_series' => ['required', 'numeric', 'unique:roomer,passport_series'],
                 'passport_number' => ['required', 'numeric', 'unique:roomer,passport_number'],
-                'number_of_check_in' => ['required', 'numeric', 'unique:roomer,number_of_check_in'],
+                'number_of_check_in' => ['required', 'numeric'],
 
             ], [
                 'required' => 'Поле :field пусто',
@@ -93,7 +93,6 @@ class RoomerController
 
         if ($request->method === 'POST') {
             $oldInput = $request->all();
-            unset($oldInput['csrf_token']);
 
             $validator = new Validator($oldInput, [
                 'fio' => ['required'],

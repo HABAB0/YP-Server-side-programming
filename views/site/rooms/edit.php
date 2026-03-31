@@ -42,8 +42,8 @@
     <label class="signup-form__label">
         Тип комнаты
         <select name="type" class="signup-form__input" required>
-            <option value="male" <?= ($old['type'] ?? $room->type) == 'male' ? 'selected' : '' ?>>Мужской</option>
-            <option value="female" <?= ($old['type'] ?? $room->type) == 'female' ? 'selected' : '' ?>>Женский</option>
+            <option value="male" <?= ($old['type'] ?? $room->type) == 'Мужская' ? 'selected' : '' ?>>Мужской</option>
+            <option value="female" <?= ($old['type'] ?? $room->type) == 'Женская' ? 'selected' : '' ?>>Женский</option>
         </select>
     </label>
 

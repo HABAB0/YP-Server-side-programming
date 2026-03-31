@@ -18,8 +18,13 @@ Route::add('GET', '/rooms', [Controller\RoomsController::class, 'rooms']);
 Route::add(['GET', 'POST'], '/rooms/create', [Controller\RoomsController::class, 'roomCreate'])->middleware('admin');
 Route::add(['GET', 'POST'], '/rooms/edit/{id}', [Controller\RoomsController::class, 'roomEdit'])->middleware('admin');
 Route::add('GET', '/rooms/delete/{id}', [Controller\RoomsController::class, 'roomDelete'])->middleware('admin');
+Route::add('GET', '/rooms/available', [Controller\RoomsController::class, 'availableByGender']);
 
 Route::add('GET', '/roomers', [Controller\RoomerController::class, 'roomers']);
 Route::add(['GET', 'POST'], '/roomers/create', [Controller\RoomerController::class, 'roomerCreate'])->middleware('admin');
 Route::add(['GET', 'POST'], '/roomers/edit/{id}', [Controller\RoomerController::class, 'roomerEdit'])->middleware('admin');
 Route::add('GET', '/roomers/delete/{id}', [Controller\RoomerController::class, 'roomerDelete'])->middleware('admin');
+
+Route::add(['GET', 'POST'],  '/accommodations', [Controller\AccommodationsController::class, 'accommodations']);
+Route::add('GET', '/accommodations/create', [Controller\AccommodationsController::class, 'create'])->middleware('admin');
+Route::add('GET', '/accommodations/checkout/{id}', [Controller\AccommodationsController::class, 'checkOut'])->middleware('admin');

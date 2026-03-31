@@ -55,7 +55,7 @@
 
 .main {
     flex: 1;
-    max-width: 800px;
+    max-width: 1200px;
     width: 100%;
     margin: 40px auto;
     padding: 40px;
@@ -421,4 +421,272 @@
 
 .rooms-back-link:hover {
     text-decoration: underline;
+}
+
+.rooms-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+}
+
+.rooms-list__item {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rooms-list__item strong {
+    font-size: 16px;
+}
+
+.rooms-list__item span {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+h3 {
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.page-title {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.page-title {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.accommodations-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.accommodations-actions .btn {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.1s;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.accommodations-actions .btn-primary {
+    color: #ffffff;
+    background-color: #d32f2f;
+    box-shadow: 2px 4px 0 #9a0007;
+}
+
+.accommodations-actions .btn-primary:hover {
+    background-color: #f44336;
+    transform: translateY(-1px);
+}
+
+.accommodations-actions .btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: 1px 2px 0 #9a0007;
+}
+
+.accommodations-actions .btn-secondary {
+    color: #ffffff;
+    background-color: #2196F3;
+    box-shadow: 2px 4px 0 #1565C0;
+}
+
+.accommodations-actions .btn-secondary:hover {
+    background-color: #42A5F5;
+    transform: translateY(-1px);
+}
+
+.accommodations-actions .btn-secondary:active {
+    transform: translateY(1px);
+    box-shadow: 1px 2px 0 #1565C0;
+}
+
+.accommodations-table-wrapper {
+    overflow-x: hidden;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.accommodations-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.accommodations-table__header {
+    background: #f9f9f9;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 2px solid #cccccc;
+    white-space: nowrap;
+}
+
+.accommodations-table__row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    transition: box-shadow 0.2s, transform 0.1s;
+}
+
+.accommodations-table__row:last-child {
+    border-bottom: none;
+}
+
+.accommodations-table__row:hover {
+    box-shadow: 4px 4px 0 #cccccc;
+    transform: translateX(2px);
+}
+
+.accommodations-table__cell {
+    padding: 15px 20px;
+    vertical-align: middle;
+    color: #333333;
+}
+
+.accommodation__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.accommodation__name {
+    font-weight: 600;
+    color: #333333;
+}
+
+.accommodation__passport {
+    font-size: 12px;
+    color: #666666;
+}
+
+.accommodation__room-number {
+    font-weight: 600;
+    color: #d32f2f;
+}
+
+.accommodation__room-type {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.accommodation__room-type.male {
+    background: #e3f2fd;
+    color: #1565C0;
+    border: 1px solid #90CAF9;
+}
+
+.accommodation__room-type.female {
+    background: #fce4ec;
+    color: #c2185b;
+    border: 1px solid #F48FB1;
+}
+
+.accommodation__date {
+    color: #333333;
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.accommodation__days {
+    text-align: center;
+}
+
+.badge-days {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #f9f9f9;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    box-shadow: 2px 2px 0 #cccccc;
+}
+
+.accommodation__status {
+    text-align: center;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background: #d32f2f;
+    color: #ffffff;
+    box-shadow: 2px 2px 0 #9a0007;
+}
+
+.status-checked-out {
+    background: #f5f5f5;
+    color: #666666;
+    border: 1px solid #cccccc;
+    box-shadow: 2px 2px 0 #cccccc;
+}
+
+.accommodation__actions {
+    text-align: center;
+}
+
+.accommodation__checkout-btn {
+    font-size: 12px;
+    padding: 8px 16px;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-danger {
+    color: #ffffff;
+    background-color: #d32f2f;
+    box-shadow: 2px 3px 0 #9a0007;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-danger:hover {
+    background-color: #f44336;
+    transform: translateY(-1px);
+}
+
+.btn-danger:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0 #9a0007;
 }

@@ -24,6 +24,7 @@
             <a href="<?= app()->route->getUrl('/buildings') ?>" class="header__link">Просмотр зданий</a>
             <a href="<?= app()->route->getUrl('/rooms') ?>" class="header__link">Просмотр комнат</a>
             <a href="<?= app()->route->getUrl('/roomers') ?>" class="header__link">Просмотр жильцов</a>
+            <a href="<?= app()->route->getUrl('/accommodations') ?>" class="header__link">Просмотр заселений</a>
             <?php if ($user->role && $user->role_id == 1): ?>
                 <a href="<?= app()->route->getUrl('/signup') ?>" class="header__link">Создание пользователя</a>
             <?php endif; ?>

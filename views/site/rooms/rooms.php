@@ -6,6 +6,7 @@
         ?>
         <a href="<?= app()->route->getUrl('/rooms/create') ?>" class="rooms-add-link">Добавить комнату</a>
     <?php endif; ?>
+    <a href="<?= app()->route->getUrl('/rooms/available') ?>" class="rooms-add-link">Просмотр свободных комнат</a>
 </div>
 
 <ol class="rooms-list">
@@ -18,13 +19,7 @@
                     <?= $room->building->name ?? 'Без здания' ?> -
                     Комната №<?= $room->room_number ?>
                     (<?= $room->capacity ?> мест,
-                    <?php
-                    $types = [
-                            'male' => 'Мужская',
-                            'female' => 'Женская',
-                    ];
-                    echo $types[$room->type] ?? $room->type;
-                    ?>)
+                    <?= $room->type == 'male' ? 'Мужская' : 'Женская' ?>)
                 </div>
                 <div class="rooms-list__actions">
                     <a href="<?= app()->route->getUrl('/rooms/edit/' . $room->id) ?>"
