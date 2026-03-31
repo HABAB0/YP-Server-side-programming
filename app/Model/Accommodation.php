@@ -15,7 +15,11 @@ class Accommodation extends Model
         'check_in_date',
         'check_out_date',
         'status',
-        'order_number'
+        'order_number',
+        'payment_amount',
+        'payment_status',
+        'payment_due_date',
+        'payment_period'
     ];
 
     public function room()
@@ -59,5 +63,13 @@ class Accommodation extends Model
 
         $interval = $checkIn->diff($checkOut);
         return (int) $interval->format('%a');
+    }
+
+    public function isDebtor(): bool
+    {
+        return $this->payment_status === 'overdue'
+            || ($this->payment_status === 'pending'
+                && !empty($this->payment_due_date)
+                && $this->payment_due_date < date('Y-m-d'));
     }
 }

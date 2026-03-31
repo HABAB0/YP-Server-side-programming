@@ -1,0 +1,139 @@
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `role` (`id`, `name`) VALUES
+(1, 'Администратор'),
+(2, 'Комендант');
+
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `user` (`id`, `login`, `password`, `role_id`) VALUES
+(1, 'admin', MD5('admin'), 1);
+
+
+CREATE TABLE `buildings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `buildings` (`id`, `name`, `address`) VALUES
+(50, 'Главный корпус А', 'ул. Университетская, 1'),
+(51, 'Главный корпус Б', 'ул. Университетская, 3'),
+(52, 'Спортивный корпус', 'ул. Спортивная, 5');
+
+
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `building_id` int(11) NOT NULL,
+  `room_number` varchar(10) NOT NULL,
+  `capacity` int(11) NOT NULL,
+  `type` enum('male','female') NOT NULL,
+  `fullness` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `rooms` (`id`, `building_id`, `room_number`, `capacity`, `type`, `fullness`) VALUES
+(50, 50, '101', 2, 'male', 2),
+(51, 50, '102', 2, 'male', 1),
+(52, 50, '103', 3, 'male', 3),
+(53, 50, '104', 2, 'female', 2),
+(54, 50, '105', 2, 'female', 0),
+(55, 50, '201', 4, 'male', 2),
+(56, 50, '202', 4, 'female', 4),
+(57, 50, '203', 2, 'male', 0),
+(58, 51, '101', 2, 'female', 2),
+(59, 51, '102', 2, 'female', 1),
+(60, 51, '103', 3, 'male', 2),
+(61, 51, '104', 2, 'male', 0),
+(62, 51, '105', 4, 'female', 3),
+(63, 51, '201', 2, 'male', 1),
+(64, 52, '101', 4, 'male', 3),
+(65, 52, '102', 4, 'female', 2),
+(66, 52, '103', 2, 'male', 0),
+(67, 52, '104', 2, 'female', 1);
+
+
+CREATE TABLE `roomer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fio` varchar(100) NOT NULL,
+  `passport_series` varchar(10) NOT NULL,
+  `passport_number` varchar(10) NOT NULL,
+  `status` enum('active','pending','checked_out') DEFAULT 'pending',
+  `number_of_check_in` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `roomer` (`id`, `fio`, `passport_series`, `passport_number`, `status`, `number_of_check_in`) VALUES
+(50, 'Иванов Иван Иванович', '4515', '123456', 'active', 'ORD-2026-001'),
+(51, 'Петров Петр Петрович', '4516', '234567', 'active', 'ORD-2026-002'),
+(52, 'Сидоров Сидор Сидорович', '4517', '345678', 'active', 'ORD-2026-003'),
+(53, 'Козлов Алексей Михайлович', '4518', '456789', 'active', 'ORD-2026-004'),
+(54, 'Новикова Мария Сергеевна', '4519', '567890', 'active', 'ORD-2026-005'),
+(55, 'Морозов Дмитрий Александрович', '4520', '678901', 'active', 'ORD-2026-006'),
+(56, 'Волкова Анна Владимировна', '4521', '789012', 'active', 'ORD-2026-007'),
+(57, 'Лебедев Сергей Николаевич', '4522', '890123', 'active', 'ORD-2026-008'),
+(58, 'Семенова Ольга Игоревна', '4523', '901234', 'pending', 'ORD-2026-009'),
+(59, 'Голубев Павел Андреевич', '4524', '012345', 'pending', 'ORD-2026-010'),
+(60, 'Виноградова Елена Дмитриевна', '4525', '123450', 'pending', 'ORD-2026-011'),
+(61, 'Богданов Игорь Викторович', '4526', '234501', 'pending', 'ORD-2026-012'),
+(62, 'Смирнова Татьяна Павловна', '4527', '345012', 'pending', 'ORD-2026-013'),
+(63, 'Кузнецов Максим Олегович', '4528', '450123', 'pending', 'ORD-2026-014'),
+(64, 'Попова Юлия Александровна', '4529', '501234', 'pending', 'ORD-2026-015'),
+(65, 'Васильев Артем Сергеевич', '4530', '012346', 'pending', 'ORD-2026-016'),
+(66, 'Соколова Ирина Михайловна', '4531', '123457', 'pending', 'ORD-2026-017'),
+(67, 'Михайлов Денис Владимирович', '4532', '234508', 'pending', 'ORD-2026-018'),
+(68, 'Федорова Светлана Игоревна', '4533', '345019', 'pending', 'ORD-2026-019'),
+(69, 'Александров Роман Петрович', '4534', '450120', 'pending', 'ORD-2026-020');
+
+
+CREATE TABLE `accommodation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `room_id` int(11) NOT NULL,
+  `roomer_id` int(11) NOT NULL,
+  `check_in_date` date NOT NULL,
+  `check_out_date` date DEFAULT NULL,
+  `status` enum('active','checked_out') DEFAULT 'active',
+  `order_number` varchar(50) DEFAULT NULL,
+  `payment_amount` decimal(10,2) DEFAULT 0.00,
+  `payment_status` enum('pending','paid','overdue') DEFAULT 'pending',
+  `payment_due_date` date DEFAULT NULL,
+  `payment_period` varchar(7) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `accommodation` (`id`, `room_id`, `roomer_id`, `check_in_date`, `check_out_date`, `status`, `order_number`, `payment_amount`, `payment_status`, `payment_due_date`, `payment_period`) VALUES
+(50, 50, 50, '2026-01-15', NULL, 'active', 'ORD-2026-001', 5000.00, 'pending', '2026-04-10', '2026-04'),
+(51, 50, 51, '2026-01-20', NULL, 'active', 'ORD-2026-002', 5000.00, 'overdue', '2026-03-15', '2026-03'),
+(52, 51, 52, '2026-02-01', NULL, 'active', 'ORD-2026-003', 4500.00, 'pending', '2026-04-15', '2026-04'),
+(53, 52, 53, '2026-01-10', NULL, 'active', 'ORD-2026-004', 6000.00, 'overdue', '2026-03-01', '2026-03'),
+(54, 52, 54, '2026-01-10', NULL, 'active', 'ORD-2026-005', 6000.00, 'pending', '2026-04-20', '2026-04'),
+(55, 52, 55, '2026-02-15', NULL, 'active', 'ORD-2026-006', 6000.00, 'overdue', '2026-03-10', '2026-03'),
+(56, 53, 56, '2026-01-25', NULL, 'active', 'ORD-2026-007', 5500.00, 'paid', '2026-04-01', '2026-04'),
+(57, 53, 57, '2026-02-10', NULL, 'active', 'ORD-2026-008', 5500.00, 'pending', '2026-04-25', '2026-04'),
+(58, 54, 58, '2026-03-01', NULL, 'active', 'ORD-2026-009', 4000.00, 'overdue', '2026-03-20', '2026-03'),
+(59, 55, 59, '2026-01-05', NULL, 'active', 'ORD-2026-010', 7000.00, 'pending', '2026-04-30', '2026-04'),
+(60, 58, 60, '2026-02-01', NULL, 'active', 'ORD-2026-011', 5000.00, 'overdue', '2026-03-05', '2026-03'),
+(61, 58, 61, '2026-02-15', NULL, 'active', 'ORD-2026-012', 5000.00, 'pending', '2026-04-15', '2026-04'),
+(62, 60, 62, '2026-01-20', NULL, 'active', 'ORD-2026-013', 6500.00, 'paid', '2026-04-01', '2026-04'),
+(63, 60, 63, '2026-03-01', NULL, 'active', 'ORD-2026-014', 6500.00, 'overdue', '2026-03-25', '2026-03'),
+(64, 62, 64, '2026-02-10', NULL, 'active', 'ORD-2026-015', 8000.00, 'pending', '2026-04-20', '2026-04'),
+(65, 62, 65, '2026-02-10', NULL, 'active', 'ORD-2026-016', 8000.00, 'overdue', '2026-03-15', '2026-03'),
+(66, 62, 66, '2026-03-05', NULL, 'active', 'ORD-2026-017', 8000.00, 'pending', '2026-04-25', '2026-04'),
+(67, 64, 67, '2026-01-15', NULL, 'active', 'ORD-2026-018', 7500.00, 'paid', '2026-04-01', '2026-04'),
+(68, 64, 68, '2026-02-01', NULL, 'active', 'ORD-2026-019', 7500.00, 'overdue', '2026-03-10', '2026-03'),
+(69, 64, 69, '2026-02-20', NULL, 'active', 'ORD-2026-020', 7500.00, 'pending', '2026-04-28', '2026-04'),
+(70, 55, 51, '2025-12-01', '2026-02-28', 'checked_out', 'ORD-2025-050', 15000.00, 'paid', '2026-01-15', '2025-12'),
+(71, 56, 52, '2026-01-10', '2026-03-15', 'checked_out', 'ORD-2026-021', 12000.00, 'paid', '2026-02-10', '2026-01'),
+(72, 57, 53, '2026-02-01', '2026-03-20', 'checked_out', 'ORD-2026-031', 8000.00, 'paid', '2026-03-01', '2026-02');

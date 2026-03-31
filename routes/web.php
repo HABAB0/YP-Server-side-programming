@@ -28,3 +28,6 @@ Route::add('GET', '/roomers/delete/{id}', [Controller\RoomerController::class, '
 Route::add(['GET', 'POST'],  '/accommodations', [Controller\AccommodationsController::class, 'accommodations']);
 Route::add('GET', '/accommodations/create', [Controller\AccommodationsController::class, 'create'])->middleware('admin');
 Route::add('GET', '/accommodations/checkout/{id}', [Controller\AccommodationsController::class, 'checkOut'])->middleware('admin');
+
+Route::add('GET', '/debtors', [Controller\DebtorsController::class, 'debtors']);
+Route::add('GET', '/debtors/mark-paid/{id}', [Controller\DebtorsController::class, 'markAsPaid'])->middleware('admin');

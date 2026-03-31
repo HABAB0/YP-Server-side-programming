@@ -10,7 +10,8 @@ use Src\Validator\Validator;
 use Src\View;
 
 class AccommodationsController
-{    public function create(Request $request): string
+{
+    public function create(Request $request): string
     {
         $user = app()->auth->user();
         if (!$user || $user->role_id !== 1) {
@@ -104,10 +105,15 @@ class AccommodationsController
                 }
 
                 $room->fullness = ($room->fullness ?? 0) + 1;
-                $room->save();
             }
 
-            Accommodation::create($oldInput);
+            $accommodation = Accommodation::create($oldInput);
+
+            $accommodation->payment_amount = 5000;
+            $accommodation->payment_status = 'pending';
+            $accommodation->payment_due_date = date('Y-m-d', strtotime('+30 days'));
+            $accommodation->payment_period = date('Y-m');
+            $accommodation->save();
 
             app()->route->redirect('/accommodations');
             exit;

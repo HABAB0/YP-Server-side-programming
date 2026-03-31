@@ -2,6 +2,7 @@
 
 <div class="accommodations-actions">
     <a href="/accommodations/create" class="btn btn-primary">Заселить жильца</a>
+    <a href="/debtors" class="btn btn-primary">Просмотр должников</a>
 </div>
 
 <h3 class="signup-message"><?= $message ?? ''; ?></h3>

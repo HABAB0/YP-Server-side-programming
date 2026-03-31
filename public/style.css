@@ -690,3 +690,23 @@ h3 {
     transform: translateY(1px);
     box-shadow: 1px 1px 0 #9a0007;
 }
+
+.btn-success {
+    background: #28a745;
+    color: #ffffff;
+    box-shadow: 2px 3px 0 #1e7e34;
+}
+
+.btn-success:hover {
+    background: #34ce57;
+    transform: translateY(-1px);
+}
+
+.btn-success:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0 #1e7e34;
+}
+
+.accommodations-table__row.is-overdue {
+    background: #fff3f3;
+}
