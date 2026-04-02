@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e88df1c3171dc3273139dc6d8721354f",
+    "content-hash": "6049d3a8cd5ce36f1cdba0b8ae825d25",
     "packages": [
         {
             "name": "brick/math",
@@ -230,6 +230,50 @@
                 }
             ],
             "time": "2026-01-18T09:59:11+00:00"
+        },
+        {
+            "name": "habab0/collect",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HABAB0/collect.git",
+                "reference": "f81df661332b58c3f22237d865cd7f9cfd74d0a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HABAB0/collect/zipball/f81df661332b58c3f22237d865cd7f9cfd74d0a7",
+                "reference": "f81df661332b58c3f22237d865cd7f9cfd74d0a7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Collect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "HABAB0",
+                    "email": "tolya.shaprove@mail.ru"
+                }
+            ],
+            "description": "Module for working with arrays ",
+            "support": {
+                "issues": "https://github.com/HABAB0/collect/issues",
+                "source": "https://github.com/HABAB0/collect/tree/master"
+            },
+            "time": "2026-04-02T12:10:44+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -2040,6 +2084,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "habab0/collect": 20,
         "illuminate/database": 20,
         "illuminate/events": 20,
         "nikic/fast-route": 20
