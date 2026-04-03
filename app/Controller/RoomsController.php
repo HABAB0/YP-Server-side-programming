@@ -32,7 +32,7 @@ class RoomsController
 
             $validator = new Validator($oldInput, [
                 'building_id' => ['required'],
-                'room_number' => ['required'],
+                'room_number' => ['required', "unique:rooms,room_number"],
                 'capacity' => ['required', 'numeric'],
                 'type' => ['required']
             ], [
@@ -94,7 +94,7 @@ class RoomsController
 
             $validator = new Validator($oldInput, [
                 'building_id' => ['required'],
-                'room_number' => ['required'],
+                'room_number' => ['required', "unique:rooms,room_number"],
                 'capacity' => ['required', 'numeric'],
                 'type' => ['required']
             ], [

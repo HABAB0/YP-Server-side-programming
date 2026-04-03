@@ -15,7 +15,8 @@
         "illuminate/database": "12.x-dev",
         "illuminate/events": "12.x-dev",
         "nikic/fast-route": "^2.0@dev",
-        "habab0/collect": "dev-master"
+        "habab0/collect": "dev-master",
+        "habab0/validators": "dev-master"
     },
     "autoload": {
         "psr-4": {

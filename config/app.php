@@ -10,9 +10,9 @@ return [
         'admin' => \Middlewares\AdminMiddleware::class,
     ],
     'validators' => [
-        'required' => \Validators\RequireValidator::class,
-        'unique' => \Validators\UniqueValidator::class,
-        'numeric' => \Validators\NumberValidator::class
+        'required' => \habab0\Validators\Validators\RequireValidator::class,
+        'unique' => \habab0\Validators\Validators\UniqueValidator::class,
+        'numeric' => \habab0\Validators\Validators\NumberValidator::class
     ],
     'routeAppMiddleware' => [
         'csrf' => \Middlewares\CSRFMiddleware::class,

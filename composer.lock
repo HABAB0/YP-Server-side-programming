@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6049d3a8cd5ce36f1cdba0b8ae825d25",
+    "content-hash": "8d663fe687bbf51773219a76c2108ec9",
     "packages": [
         {
             "name": "brick/math",
@@ -274,6 +274,48 @@
                 "source": "https://github.com/HABAB0/collect/tree/master"
             },
             "time": "2026-04-02T12:10:44+00:00"
+        },
+        {
+            "name": "habab0/validators",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HABAB0/validatorsLib.git",
+                "reference": "1b46e41ab17d1b7600fb2a441aee845134e9e413"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HABAB0/validatorsLib/zipball/1b46e41ab17d1b7600fb2a441aee845134e9e413",
+                "reference": "1b46e41ab17d1b7600fb2a441aee845134e9e413",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^12.0",
+                "php": "^8.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "habab0\\Validators\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "HABAB0",
+                    "email": "tolya.shaprove@mail.ru"
+                }
+            ],
+            "description": "Module for working with validators ",
+            "support": {
+                "issues": "https://github.com/HABAB0/validatorsLib/issues",
+                "source": "https://github.com/HABAB0/validatorsLib/tree/master"
+            },
+            "time": "2026-04-03T07:26:55+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -550,12 +592,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "60b2fbfb73cc9bd0cb1c27234ee397b0e2ebbadb"
+                "reference": "2f2c850b96671154808794d5e84689fd72bda084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/60b2fbfb73cc9bd0cb1c27234ee397b0e2ebbadb",
-                "reference": "60b2fbfb73cc9bd0cb1c27234ee397b0e2ebbadb",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/2f2c850b96671154808794d5e84689fd72bda084",
+                "reference": "2f2c850b96671154808794d5e84689fd72bda084",
                 "shasum": ""
             },
             "require": {
@@ -614,7 +656,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-03-17T13:42:04+00:00"
+            "time": "2026-03-28T19:14:43+00:00"
         },
         {
             "name": "illuminate/events",
@@ -677,12 +719,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
-                "reference": "e862e5648ee34004fa56046b746f490dfa86c613"
+                "reference": "e295d62d89dcdb87e2b1bd70dd14d074a0ed73cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/macroable/zipball/e862e5648ee34004fa56046b746f490dfa86c613",
-                "reference": "e862e5648ee34004fa56046b746f490dfa86c613",
+                "url": "https://api.github.com/repos/illuminate/macroable/zipball/e295d62d89dcdb87e2b1bd70dd14d074a0ed73cc",
+                "reference": "e295d62d89dcdb87e2b1bd70dd14d074a0ed73cc",
                 "shasum": ""
             },
             "require": {
@@ -715,7 +757,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-07-23T16:31:01+00:00"
+            "time": "2026-03-30T19:05:19+00:00"
         },
         {
             "name": "illuminate/pipeline",
@@ -827,12 +869,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "cd8a3c5a95501b9ae0828ac785b5af5ffccdca45"
+                "reference": "0e2df5a96ce2e0437c9633519b9503dcbf9c6db5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/cd8a3c5a95501b9ae0828ac785b5af5ffccdca45",
-                "reference": "cd8a3c5a95501b9ae0828ac785b5af5ffccdca45",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/0e2df5a96ce2e0437c9633519b9503dcbf9c6db5",
+                "reference": "0e2df5a96ce2e0437c9633519b9503dcbf9c6db5",
                 "shasum": ""
             },
             "require": {
@@ -899,7 +941,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-03-17T13:55:49+00:00"
+            "time": "2026-03-31T14:52:00+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -907,12 +949,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "92df8041c333e3feb9345184ed95e508a4ab00b0"
+                "reference": "36db44e00965624804cfbdad3a145b539e0b8261"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/92df8041c333e3feb9345184ed95e508a4ab00b0",
-                "reference": "92df8041c333e3feb9345184ed95e508a4ab00b0",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/36db44e00965624804cfbdad3a145b539e0b8261",
+                "reference": "36db44e00965624804cfbdad3a145b539e0b8261",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +1003,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2026-02-24T14:45:45+00:00"
+            "time": "2026-04-02T17:51:36+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -969,12 +1011,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon.git",
-                "reference": "4e0ab6a8b454b1df4053ba1027e0619606ce2463"
+                "reference": "e5136b341dfde10dac63f3c8ce8ea175b10f7e6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/4e0ab6a8b454b1df4053ba1027e0619606ce2463",
-                "reference": "4e0ab6a8b454b1df4053ba1027e0619606ce2463",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/e5136b341dfde10dac63f3c8ce8ea175b10f7e6c",
+                "reference": "e5136b341dfde10dac63f3c8ce8ea175b10f7e6c",
                 "shasum": ""
             },
             "require": {
@@ -1067,7 +1109,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-15T07:35:15+00:00"
+            "time": "2026-03-24T19:38:45+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -1349,12 +1391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/clock.git",
-                "reference": "9169f24776edde469914c1e7a1442a50f7a4e110"
+                "reference": "674fa3b98e21531dd040e613479f5f6fa8f32111"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/clock/zipball/9169f24776edde469914c1e7a1442a50f7a4e110",
-                "reference": "9169f24776edde469914c1e7a1442a50f7a4e110",
+                "url": "https://api.github.com/repos/symfony/clock/zipball/674fa3b98e21531dd040e613479f5f6fa8f32111",
+                "reference": "674fa3b98e21531dd040e613479f5f6fa8f32111",
                 "shasum": ""
             },
             "require": {
@@ -1419,7 +1461,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-12T15:39:26+00:00"
+            "time": "2026-03-24T13:12:05+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1828,12 +1870,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "1888cf064399868af3784b9e043240f1d89d25ce"
+                "reference": "33600f8489485425bfcddd0d983391038d3422e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/1888cf064399868af3784b9e043240f1d89d25ce",
-                "reference": "1888cf064399868af3784b9e043240f1d89d25ce",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/33600f8489485425bfcddd0d983391038d3422e7",
+                "reference": "33600f8489485425bfcddd0d983391038d3422e7",
                 "shasum": ""
             },
             "require": {
@@ -1920,7 +1962,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-17T07:53:42+00:00"
+            "time": "2026-03-24T13:12:05+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -2085,6 +2127,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "habab0/collect": 20,
+        "habab0/validators": 20,
         "illuminate/database": 20,
         "illuminate/events": 20,
         "nikic/fast-route": 20

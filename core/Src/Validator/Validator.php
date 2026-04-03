@@ -53,7 +53,7 @@ class Validator
                 $fieldName,
                 $this->fields[$fieldName],
                 $args,
-                $this->messages[$validatorName]);
+                $this->messages[$validatorName] ?? null);
 
             //Если валидация не прошла, то добавляем ошибку в общий массив ошибок
             if (!$validator->rule()) {
