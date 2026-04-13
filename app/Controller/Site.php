@@ -45,7 +45,7 @@ class Site
 
             User::create($data);
 
-            app()->route->redirect('/login');
+            app()->route->redirect('/hello');
             exit;
         }
         return new View('site.signup');

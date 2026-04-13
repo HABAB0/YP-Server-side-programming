@@ -26,5 +26,8 @@
     },
     "config": {
         "process-timeout": 300
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
     }
 }

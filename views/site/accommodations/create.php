@@ -15,7 +15,7 @@
 
     <label class="signup-form__label">
         Жилец
-        <select name="roomer_id" class="signup-form__input <?= isset($errors['roomer_id']) ? 'input-error' : '' ?>" required>
+        <select name="roomer_id" class="signup-form__input <?= isset($errors['roomer_id']) ? 'input-error' : '' ?>">
             <option value="">Выберите жильца</option>
             <?php foreach ($roomers as $roomer): ?>
                 <option value="<?= $roomer->id ?>" <?= ($roomer_id ?? $old['roomer_id'] ?? '') == $roomer->id ? 'selected' : '' ?>>
@@ -28,7 +28,7 @@
 
     <label class="signup-form__label">
         Комната
-        <select name="room_id" class="signup-form__input <?= isset($errors['room_id']) ? 'input-error' : '' ?>" required>
+        <select name="room_id" class="signup-form__input <?= isset($errors['room_id']) ? 'input-error' : '' ?>" >
             <option value="">Выберите комнату</option>
             <?php foreach ($rooms as $room): ?>
                 <?php
@@ -49,7 +49,7 @@
     <label class="signup-form__label">
         Дата заселения
         <input type="date" name="check_in_date" class="signup-form__input <?= isset($errors['check_in_date']) ? 'input-error' : '' ?>"
-               value="<?= $old['check_in_date'] ?? date('Y-m-d') ?>" required>
+               value="<?= $old['check_in_date'] ?? date('Y-m-d') ?>">
     </label>
 
     <button type="submit" class="signup-form__button">Заселить</button>

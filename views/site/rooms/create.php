@@ -13,7 +13,7 @@
 
     <label class="signup-form__label">
         Здание
-        <select name="building_id" class="signup-form__input" required>
+        <select name="building_id" class="signup-form__input" >
             <option value="">Выберите здание</option>
             <?php foreach ($buildings as $building): ?>
                 <option value="<?= $building->id ?>" <?= ($old['building_id'] ?? '') == $building->id ? 'selected' : '' ?>>
@@ -25,16 +25,16 @@
     <label class="signup-form__label">
         Номер комнаты
         <input type="text" name="room_number" class="signup-form__input"
-               value="<?= $old['room_number'] ?? '' ?>" required>
+               value="<?= $old['room_number'] ?? '' ?>" >
     </label>
     <label class="signup-form__label">
         Вместимость
         <input type="number" name="capacity" class="signup-form__input"
-               value="<?= $old['capacity'] ?? 1 ?>" min="1" required>
+               value="<?= $old['capacity'] ?? 1 ?>" min="1" >
     </label>
     <label class="signup-form__label">
         Тип комнаты
-        <select name="type" class="signup-form__input" required>
+        <select name="type" class="signup-form__input" >
             <option value="male" <?= ($old['type'] ?? '') == 'Мужская' ? 'selected' : '' ?>>Мужская</option>
             <option value="female" <?= ($old['type'] ?? '') == 'Женская' ? 'selected' : '' ?>>Женская</option>
         </select>
