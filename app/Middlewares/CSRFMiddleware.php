@@ -10,6 +10,10 @@ class CSRFMiddleware
 {
     public function handle(Request $request): void
     {
+        if (str_starts_with($request->uri(), '/api')) {
+            return;
+        }
+
         if ($request->method !== 'POST') {
             return;
         }
