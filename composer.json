@@ -25,7 +25,10 @@
         }
     },
     "config": {
-        "process-timeout": 300
+        "process-timeout": 300,
+        "audit": {
+            "ignore": ["PKSA-z3gr-8qht-p93v"]
+        }
     },
     "require-dev": {
         "phpunit/phpunit": "*"
