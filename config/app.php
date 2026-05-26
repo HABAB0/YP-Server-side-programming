@@ -8,6 +8,7 @@ return [
     'routeMiddleware' => [
         'auth' => \Middlewares\AuthMiddleware::class,
         'admin' => \Middlewares\AdminMiddleware::class,
+        'bearer' => \Middlewares\BearerAuthMiddleware::class,
     ],
     'validators' => [
         'required' => \habab0\Validators\Validators\RequireValidator::class,

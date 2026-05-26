@@ -13,8 +13,10 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `api_token` varchar(64) DEFAULT NULL,
   `role_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `api_token` (`api_token`)
 );
 
 INSERT INTO `user` (`id`, `login`, `password`, `role_id`) VALUES

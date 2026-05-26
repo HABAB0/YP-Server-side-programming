@@ -2,30 +2,29 @@
 
 namespace Src\Auth;
 
+use Src\Request;
 use Src\Session;
 
 class Auth
 {
-    //Свойство для хранения любого класса, реализующего интерфейс IdentityInterface
     private static IdentityInterface $user;
+    private static ?object $authenticatedUser = null;
 
-    //Инициализация класса пользователя
     public static function init(IdentityInterface $user): void
     {
         self::$user = $user;
-        if (self::user()) {
-            self::login(self::user());
+        $id = Session::get('id') ?? 0;
+        if ($sessionUser = self::$user->findIdentity($id)) {
+            self::$authenticatedUser = $sessionUser;
         }
     }
 
-    //Вход пользователя по модели
     public static function login(IdentityInterface $user): void
     {
-        self::$user = $user;
-        Session::set('id', self::$user->getId());
+        self::$authenticatedUser = $user;
+        Session::set('id', $user->getId());
     }
 
-    //Аутентификация пользователя и вход по учетным данным
     public static function attempt(array $credentials): bool
     {
         if ($user = self::$user->attemptIdentity($credentials)) {
@@ -35,25 +34,24 @@ class Auth
         return false;
     }
 
-    //Возврат текущего аутентифицированного пользователя
     public static function user()
     {
+        if (self::$authenticatedUser !== null) {
+            return self::$authenticatedUser;
+        }
+
         $id = Session::get('id') ?? 0;
         return self::$user->findIdentity($id);
     }
 
-    //Проверка является ли текущий пользователь аутентифицированным
     public static function check(): bool
     {
-        if (self::user()) {
-            return true;
-        }
-        return false;
+        return (bool) self::user();
     }
 
-    //Выход текущего пользователя
     public static function logout(): bool
     {
+        self::$authenticatedUser = null;
         Session::clear('id');
         return true;
     }
@@ -63,6 +61,48 @@ class Auth
         $token = md5(time());
         Session::set('csrf_token', $token);
         return $token;
+    }
+
+    public static function issueApiToken(array $credentials): ?string
+    {
+        if (!$user = self::$user->attemptIdentity($credentials)) {
+            return null;
+        }
+
+        $token = bin2hex(random_bytes(32));
+        $user->api_token = $token;
+        $user->save();
+
+        return $token;
+    }
+
+    public static function bearerTokenFromRequest(Request $request): ?string
+    {
+        $headers = $request->headers;
+        $auth = $headers['Authorization']
+            ?? $headers['authorization']
+            ?? $_SERVER['HTTP_AUTHORIZATION']
+            ?? '';
+
+        if (preg_match('/Bearer\s+(\S+)/i', $auth, $matches)) {
+            return $matches[1];
+        }
+
+        return null;
+    }
+
+    public static function authenticateByBearer(?string $token): bool
+    {
+        if (empty($token)) {
+            return false;
+        }
+
+        if ($user = self::$user->findIdentityByToken($token)) {
+            self::$authenticatedUser = $user;
+            return true;
+        }
+
+        return false;
     }
 
 }

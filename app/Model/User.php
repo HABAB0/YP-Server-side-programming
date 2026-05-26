@@ -16,7 +16,8 @@ class User extends Model implements IdentityInterface
     protected $fillable = [
         'login',
         'password',
-        'role_id'
+        'role_id',
+        'api_token',
     ];
 
     public function role()
@@ -36,6 +37,11 @@ class User extends Model implements IdentityInterface
     public function findIdentity(int $id)
     {
         return self::where('id', $id)->first();
+    }
+
+    public function findIdentityByToken(string $token)
+    {
+        return self::where('api_token', $token)->first();
     }
 
     //Возврат первичного ключа

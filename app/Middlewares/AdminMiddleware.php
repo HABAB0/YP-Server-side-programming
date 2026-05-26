@@ -14,7 +14,7 @@ class AdminMiddleware
             exit;
         }
         $user = Auth::user();
-        if ($user['role_id'] !== 1) {
+        if ($user->role_id !== 1) {
             app()->route->redirect('/forbidden');
             exit;
         }
